@@ -1,0 +1,33 @@
+stages:
+
+# 1st step of the pipeline
+  retrieve:
+  # Command to be executed
+    cmd: python src/retrieve.py
+    # File dependencies required for this step 
+    deps:
+    - src/retrieve.py
+    # Outputs that the command generates
+    outs:
+    - data_raw.csv
+  
+  # 2nd Step of the pipeline
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+      - src/preprocess.py
+      - data_raw.csv
+    outs:
+      - data_processed.csv
+    
+  # 3rd Step of the pipeline
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+    outs:
+      - by_region.png
+    metrics:
+      - metrics.json:
+          cache: false
+  
