@@ -1,6 +1,6 @@
 import pandas as pd 
 import numpy as np
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+# from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.linear_model import LogisticRegression
 from sklearn import preprocessing
 from sklearn.model_selection import cross_val_predict
